@@ -1,0 +1,20 @@
+--Mdir .
+--lint-only
++incdir+../src/serv_1.0.2/rtl
+-CFLAGS -I../src/serv_1.0.2/rtl
+../src/serv_1.0.2/rtl/serv_shift.v
+../src/serv_1.0.2/rtl/serv_bufreg.v
+../src/serv_1.0.2/rtl/serv_alu.v
+../src/serv_1.0.2/rtl/serv_csr.v
+../src/serv_1.0.2/rtl/serv_ctrl.v
+../src/serv_1.0.2/rtl/serv_decode.v
+../src/serv_1.0.2/rtl/serv_mem_if.v
+../src/serv_1.0.2/rtl/serv_rf_if.v
+../src/serv_1.0.2/rtl/serv_rf_ram_if.v
+../src/serv_1.0.2/rtl/serv_rf_ram.v
+../src/serv_1.0.2/rtl/serv_state.v
+../src/serv_1.0.2/rtl/serv_top.v
+../src/serv_1.0.2/rtl/serv_rf_top.v
+--top-module serv_rf_top
+--exe
+

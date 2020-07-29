@@ -1,0 +1,136 @@
+dependencies:
+  ::serv:1.0.2: []
+  ::servant:1.0.2:
+  - ::serv:1.0.2
+  - ::vlog_tb_utils:1.1
+  ::vlog_tb_utils:1.1: []
+files:
+- core: ::serv:1.0.2
+  file_type: verilogSource
+  is_include_file: true
+  name: ../src/serv_1.0.2/rtl/serv_params.vh
+- core: ::serv:1.0.2
+  file_type: verilogSource
+  name: ../src/serv_1.0.2/rtl/serv_shift.v
+- core: ::serv:1.0.2
+  file_type: verilogSource
+  name: ../src/serv_1.0.2/rtl/serv_bufreg.v
+- core: ::serv:1.0.2
+  file_type: verilogSource
+  name: ../src/serv_1.0.2/rtl/serv_alu.v
+- core: ::serv:1.0.2
+  file_type: verilogSource
+  name: ../src/serv_1.0.2/rtl/serv_csr.v
+- core: ::serv:1.0.2
+  file_type: verilogSource
+  name: ../src/serv_1.0.2/rtl/serv_ctrl.v
+- core: ::serv:1.0.2
+  file_type: verilogSource
+  name: ../src/serv_1.0.2/rtl/serv_decode.v
+- core: ::serv:1.0.2
+  file_type: verilogSource
+  name: ../src/serv_1.0.2/rtl/serv_mem_if.v
+- core: ::serv:1.0.2
+  file_type: verilogSource
+  name: ../src/serv_1.0.2/rtl/serv_rf_if.v
+- core: ::serv:1.0.2
+  file_type: verilogSource
+  name: ../src/serv_1.0.2/rtl/serv_rf_ram_if.v
+- core: ::serv:1.0.2
+  file_type: verilogSource
+  name: ../src/serv_1.0.2/rtl/serv_rf_ram.v
+- core: ::serv:1.0.2
+  file_type: verilogSource
+  name: ../src/serv_1.0.2/rtl/serv_state.v
+- core: ::serv:1.0.2
+  file_type: verilogSource
+  name: ../src/serv_1.0.2/rtl/serv_top.v
+- core: ::serv:1.0.2
+  file_type: verilogSource
+  name: ../src/serv_1.0.2/rtl/serv_rf_top.v
+- core: ::servant:1.0.2
+  file_type: verilogSource
+  name: ../src/servant_1.0.2/servant/servant_clock_gen.v
+- core: ::servant:1.0.2
+  file_type: verilogSource
+  name: ../src/servant_1.0.2/servant/servant_timer.v
+- core: ::servant:1.0.2
+  file_type: verilogSource
+  name: ../src/servant_1.0.2/servant/servant_gpio.v
+- core: ::servant:1.0.2
+  file_type: verilogSource
+  name: ../src/servant_1.0.2/servant/servant_arbiter.v
+- core: ::servant:1.0.2
+  file_type: verilogSource
+  name: ../src/servant_1.0.2/servant/servant_mux.v
+- core: ::servant:1.0.2
+  file_type: verilogSource
+  name: ../src/servant_1.0.2/servant/servant_ram.v
+- core: ::servant:1.0.2
+  file_type: verilogSource
+  name: ../src/servant_1.0.2/servant/servant.v
+- core: ::servant:1.0.2
+  file_type: verilogSource
+  name: ../src/servant_1.0.2/bench/servant_sim.v
+- core: ::servant:1.0.2
+  file_type: cppSource
+  name: ../src/servant_1.0.2/bench/servant_tb.cpp
+hooks: {}
+name: servant_1.0.2
+parameters:
+  RISCV_FORMAL:
+    datatype: bool
+    paramtype: vlogdefine
+  SERV_CLEAR_RAM:
+    datatype: bool
+    paramtype: vlogdefine
+  firmware:
+    datatype: file
+    default: /sw/hello.hex
+    description: Preload RAM with a hex file at runtime (overrides memfile)
+    paramtype: plusarg
+  heartbeat:
+    datatype: int
+    description: Display a heartbeat message every n*heartbeat time unit
+    paramtype: plusarg
+  memsize:
+    datatype: int
+    default: 8192
+    description: Memory size in bytes for RAM (default 8kiB)
+    paramtype: vlogparam
+  signature:
+    datatype: file
+    paramtype: plusarg
+  tapfile:
+    datatype: str
+    description: Name of TAP file
+    paramtype: plusarg
+  testcase:
+    datatype: str
+    description: Name of testcase (Used for VCD filename)
+    paramtype: plusarg
+  timeout:
+    datatype: int
+    description: Abort test case after n cycles
+    paramtype: plusarg
+  uart_baudrate:
+    datatype: int
+    default: 57600
+    description: Treat q output as an UART with the specified baudrate (0 or omitted
+      parameter disables UART decoding)
+    paramtype: plusarg
+  vcd:
+    datatype: bool
+    description: Enable VCD logging
+    paramtype: plusarg
+  vcd_start:
+    datatype: int
+    description: Delay start of VCD dumping until the specified time
+    paramtype: plusarg
+tool_options:
+  verilator:
+    verilator_options:
+    - --trace
+toplevel: servant_sim
+version: 0.2.1
+vpi: []
