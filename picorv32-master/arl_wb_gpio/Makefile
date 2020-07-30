@@ -53,6 +53,6 @@ firmware/%.o: firmware/%.c
 clean:
 	rm -vrf $(FIRMWARE_OBJS) $(TEST_OBJS) check.smt2 check.vcd synth.v synth.log \
 		firmware/firmware.elf firmware/firmware.bin firmware/firmware.hex firmware/firmware.map \
-		testbench_wb.vvp testbench.vcd
+		testbench_wb.vvp testbench.vcd testbench.trace
 
 .PHONY: test_wb test_wb_vcd clean
