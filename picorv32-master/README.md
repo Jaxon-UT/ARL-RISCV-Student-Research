@@ -1,3 +1,7 @@
+# NOTE
+
+This folder is a modified version of the PicoRV32 repository. All the changes are in the arl_wb_gpio folder, where an example of memory mapped IO has been made.
+The original repository is available here: https://github.com/cliffordwolf/picorv32
 
 PicoRV32 - A Size-Optimized RISC-V CPU
 ======================================
@@ -732,4 +736,3 @@ See `make area` in [scripts/vivado/](scripts/vivado/).
 | PicoRV32 (small)   |        761 |             48 |             442 |
 | PicoRV32 (regular) |        917 |             48 |             583 |
 | PicoRV32 (large)   |       2019 |             88 |            1085 |
-

@@ -1,3 +1,8 @@
+# NOTE
+
+This folder is a modified version of the VexRiscv repository. All changes were made in the VexRiscvSocSoftware and src folders, as well as the makefile in the top directory. This makefile is built to compile and run test code, that demonstrates gpio using the Vex Murax core.
+The original repository is available here: https://github.com/SpinalHDL/VexRiscv
+
 ## Index
 
 - [Index](#index)
@@ -66,53 +71,53 @@ The CPU configurations used below can be found in the `src/scala/vexriscv/demo` 
 
 ```
 VexRiscv small (RV32I, 0.52 DMIPS/Mhz, no datapath bypass, no interrupt) ->
-    Artix 7     -> 243 Mhz 504 LUT 505 FF 
+    Artix 7     -> 243 Mhz 504 LUT 505 FF
     Cyclone V   -> 174 Mhz 352 ALMs
-    Cyclone IV  -> 179 Mhz 731 LUT 494 FF 
+    Cyclone IV  -> 179 Mhz 731 LUT 494 FF
     iCE40       -> 92 Mhz 1130 LC
 
 VexRiscv small (RV32I, 0.52 DMIPS/Mhz, no datapath bypass) ->
-    Artix 7     -> 240 Mhz 556 LUT 566 FF 
+    Artix 7     -> 240 Mhz 556 LUT 566 FF
     Cyclone V   -> 194 Mhz 394 ALMs
-    Cyclone IV  -> 174 Mhz 831 LUT 555 FF 
+    Cyclone IV  -> 174 Mhz 831 LUT 555 FF
     iCE40       -> 85 Mhz 1292 LC
 
 VexRiscv small and productive (RV32I, 0.82 DMIPS/Mhz)  ->
-    Artix 7     -> 232 Mhz 816 LUT 534 FF 
+    Artix 7     -> 232 Mhz 816 LUT 534 FF
     Cyclone V   -> 155 Mhz 492 ALMs
-    Cyclone IV  -> 155 Mhz 1,111 LUT 530 FF 
+    Cyclone IV  -> 155 Mhz 1,111 LUT 530 FF
     iCE40       -> 63 Mhz 1596 LC
 
 VexRiscv small and productive with I$ (RV32I, 0.70 DMIPS/Mhz, 4KB-I$)  ->
-    Artix 7     -> 220 Mhz 730 LUT 570 FF 
+    Artix 7     -> 220 Mhz 730 LUT 570 FF
     Cyclone V   -> 142 Mhz 501 ALMs
-    Cyclone IV  -> 150 Mhz 1,139 LUT 536 FF 
+    Cyclone IV  -> 150 Mhz 1,139 LUT 536 FF
     iCE40       -> 66 Mhz 1680 LC
 
 VexRiscv full no cache (RV32IM, 1.21 DMIPS/Mhz 2.30 Coremark/Mhz, single cycle barrel shifter, debug module, catch exceptions, static branch) ->
-    Artix 7     -> 216 Mhz 1418 LUT 949 FF 
+    Artix 7     -> 216 Mhz 1418 LUT 949 FF
     Cyclone V   -> 133 Mhz 933 ALMs
-    Cyclone IV  -> 143 Mhz 2,076 LUT 972 FF 
+    Cyclone IV  -> 143 Mhz 2,076 LUT 972 FF
 
 VexRiscv full (RV32IM, 1.21 DMIPS/Mhz 2.30 Coremark/Mhz with cache trashing, 4KB-I$,4KB-D$, single cycle barrel shifter, debug module, catch exceptions, static branch) ->
-    Artix 7     -> 199 Mhz 1840 LUT 1158 FF 
+    Artix 7     -> 199 Mhz 1840 LUT 1158 FF
     Cyclone V   -> 141 Mhz 1,166 ALMs
-    Cyclone IV  -> 131 Mhz 2,407 LUT 1,067 FF 
+    Cyclone IV  -> 131 Mhz 2,407 LUT 1,067 FF
 
 VexRiscv full max perf (HZ*IPC) -> (RV32IM, 1.38 DMIPS/Mhz 2.57 Coremark/Mhz, 8KB-I$,8KB-D$, single cycle barrel shifter, debug module, catch exceptions, dynamic branch prediction in the fetch stage, branch and shift operations done in the Execute stage) ->
-    Artix 7     -> 200 Mhz 1935 LUT 1216 FF 
+    Artix 7     -> 200 Mhz 1935 LUT 1216 FF
     Cyclone V   -> 130 Mhz 1,166 ALMs
-    Cyclone IV  -> 126 Mhz 2,484 LUT 1,120 FF 
+    Cyclone IV  -> 126 Mhz 2,484 LUT 1,120 FF
 
 VexRiscv full with MMU (RV32IM, 1.24 DMIPS/Mhz 2.35 Coremark/Mhz, with cache trashing, 4KB-I$, 4KB-D$, single cycle barrel shifter, debug module, catch exceptions, dynamic branch, MMU) ->
-    Artix 7     -> 151 Mhz 2021 LUT 1541 FF 
+    Artix 7     -> 151 Mhz 2021 LUT 1541 FF
     Cyclone V   -> 124 Mhz 1,368 ALMs
-    Cyclone IV -> 128 Mhz 2,826 LUT 1,474 FF 
+    Cyclone IV -> 128 Mhz 2,826 LUT 1,474 FF
 
 VexRiscv linux balanced (RV32IMA, 1.21 DMIPS/Mhz 2.27 Coremark/Mhz, with cache trashing, 4KB-I$, 4KB-D$, single cycle barrel shifter, catch exceptions, static branch, MMU, Supervisor, Compatible with mainstream linux) ->
-    Artix 7     -> 180 Mhz 2883 LUT 2130 FF 
+    Artix 7     -> 180 Mhz 2883 LUT 2130 FF
     Cyclone V   -> 131 Mhz 1,764 ALMs
-    Cyclone IV  -> 121 Mhz 3,608 LUT 2,082 FF 
+    Cyclone IV  -> 121 Mhz 3,608 LUT 2,082 FF
 ```
 
 The following configuration results in 1.44 DMIPS/MHz:
@@ -193,7 +198,7 @@ export VEXRISCV_REGRESSION_TEST_ID=
 sbt "testOnly vexriscv.TestIndividualFeatures"
 ```
 
-This will generate random VexRiscv configuration and test them with: 
+This will generate random VexRiscv configuration and test them with:
 - ISA tests from https://github.com/riscv/riscv-tests/tree/master/isa and  https://github.com/riscv/riscv-compliance
 - Dhrystone benchmark
 - Coremark benchmark
@@ -211,7 +216,7 @@ then :
 export VEXRISCV_REGRESSION_TEST_ID=5,9
 ```
 
-Also there is a few environnement variable that you can use to modulate the random generation : 
+Also there is a few environnement variable that you can use to modulate the random generation :
 
 | Parameters                                  | range              | description |
 | ------------------------------------------- | ------------------ | ----------- |
@@ -318,9 +323,9 @@ You can find some FPGA projects which instantiate the Briey SoC here (DE1-SoC, D
 Here are some measurements of Briey SoC timings and area:
 
 ```
-Artix 7     -> 181 Mhz 3220 LUT 3181 FF 
+Artix 7     -> 181 Mhz 3220 LUT 3181 FF
 Cyclone V   -> 142 Mhz 2,222 ALMs
-Cyclone IV  -> 130 Mhz 4,538 LUT 3,211 FF 
+Cyclone IV  -> 130 Mhz 4,538 LUT 3,211 FF
 ```
 
 ## Murax SoC
@@ -373,15 +378,15 @@ Here are some timing and area measurements of the Murax SoC:
 
 ```
 Murax interlocked stages (0.45 DMIPS/Mhz, 8 bits GPIO) ->
-    Artix 7     -> 216 Mhz 1109 LUT 1201 FF 
+    Artix 7     -> 216 Mhz 1109 LUT 1201 FF
     Cyclone V   -> 182 Mhz 725 ALMs
-    Cyclone IV  -> 147 Mhz 1,551 LUT 1,223 FF 
+    Cyclone IV  -> 147 Mhz 1,551 LUT 1,223 FF
     iCE40       ->  64 Mhz 2422 LC (nextpnr)
 
 MuraxFast bypassed stages (0.65 DMIPS/Mhz, 8 bits GPIO) ->
-    Artix 7     -> 224 Mhz 1278 LUT 1300 FF 
+    Artix 7     -> 224 Mhz 1278 LUT 1300 FF
     Cyclone V   -> 173 Mhz 867 ALMs
-    Cyclone IV  -> 143 Mhz 1,755 LUT 1,258 FF 
+    Cyclone IV  -> 143 Mhz 1,755 LUT 1,258 FF
     iCE40       ->  66 Mhz 2799 LC (nextpnr)
 ```
 
@@ -400,7 +405,7 @@ sbt "test:runMain vexriscv.MuraxSim"
 
 A default configuration is located in `src/main/scala/vexriscv/demo/Linux.scala`.
 
-This file also contains 
+This file also contains
 - The commands to compile the buildroot image
 - How to run the Verilator simulation in interative mode
 
@@ -1090,4 +1095,3 @@ The OpenOCD port is here: <https://github.com/SpinalHDL/openocd_riscv>
 
 This plugin offers a service to other plugins to generate a useful Yaml file describing the CPU configuration. It contains, for instance, the sequence of instructions required
 to flush the data cache (information used by openocd).
-
