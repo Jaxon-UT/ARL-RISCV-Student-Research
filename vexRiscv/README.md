@@ -1,8 +1,8 @@
-# NOTE
+# DISCLAIMER
 
 This folder is a modified version of the VexRiscv repository. All changes were made in the VexRiscvSocSoftware and src folders, as well as the makefile in the top directory. This makefile is built to compile and run test code, that demonstrates gpio using the Vex Murax core.
-The original repository is available here: https://github.com/SpinalHDL/VexRiscv
-The VexRiscvSocSoftware repository is avalable here: https://github.com/SpinalHDL/VexRiscvSocSoftware
+#### The original repository is available here: https://github.com/SpinalHDL/VexRiscv
+#### The VexRiscvSocSoftware repository is avalable here: https://github.com/SpinalHDL/VexRiscvSocSoftware
 
 ## Index
 

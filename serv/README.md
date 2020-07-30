@@ -1,7 +1,7 @@
-# NOTE
+# DISCLAIMER
 
 This folder is a modified version of the Serv repository. Most of the changes are in the sw/ folder, where a makefile and some code were added to make it easier to use the core.
-The original repository is available here: https://github.com/olofk/serv
+#### The original repository is available here: https://github.com/olofk/serv
 
 
 <img align="right" src="https://svg.wavedrom.com/{signal:[{wave:'0.P...'},{wave:'023450',data:'S E R V'}]}"/>
