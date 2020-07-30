@@ -1,0 +1,3 @@
+[submodule "serv/zephyr"]
+  path = serv/zephyr
+  url = https://github.com/olofk/zephyr
