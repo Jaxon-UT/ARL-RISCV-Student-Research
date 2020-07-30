@@ -11,66 +11,66 @@
 
 
 void fibonacci_test(unsigned int num);
-void test_mem_map(uint32_t addr_base);
+void test_mem_map(uint32_t addr_base, int port_num);
+void print_hex_nl(unsigned int val, int digits);
+void print_hex_str(unsigned int val, int digits, const char *p);
+void print_dec_nl(int num);
 
 int main(void)
 {
-	//print_str("\nhello world, from Jaxon\n\n");
+	//print_str("\nhello world, from ARL\n\n");
 
 	//fibonacci_test(10);
 
 	//sieve();
 
-	test_mem_map(0x30000000);
-	test_mem_map(0x40000000);
+	test_mem_map(0x30000000, 3);
+	test_mem_map(0x40000000, 4);
 
 	//stats();
 	return 0;
 }
 
-void test_mem_map(uint32_t addr_base){
+void test_mem_map(uint32_t addr_base, int port_num){
 	unsigned int volatile * const port = (unsigned int *) addr_base;
 
 	print_str("\nMemory Mapping Test Base Address 0x");
-	print_hex(addr_base, 8);
-	print_str(":\n");
+	print_hex_str(addr_base, 8, ":\n");
 
 
-	print_hex(*port, 8);
-	print_str("\n");
-	print_hex(*(port + 1), 8);
-	print_str("\n");
-	print_hex(*(port + 2), 8);
-	print_str("\n\n");
-
-	print_hex(*port, 8);
-	print_str("\n");
-	*port = 0xfadebead;
-	print_hex(*port, 8);
-	print_str("\n");
-	print_hex(*port, 8);
+	for(int i = 0; i < port_num; i++){
+		print_str("Port ");
+		print_dec(i);
+		print_str(": ");
+		print_hex_nl(*(port + i), 8);
+	}
 	print_str("\n");
 
-	print_str("\n");
+	unsigned int hex_words[5];
+	hex_words[0] = 0xdeadbeef;
+	hex_words[1] = 0xfacedeaf;
+	hex_words[2] = 0x8badf00d;
+	hex_words[3] = 0xcafed00d;
+	hex_words[4] = 0xbaddcafe;
 
-	print_hex(*(port + 1), 8);
-	print_str("\n");
-	*(port + 1) = 0xcafefeed;
-	print_hex(*(port + 1), 8);
-	print_str("\n");
-	print_hex(*(port + 1), 8);
-	print_str("\n");
+	for(int i = 0; i < port_num; i++){
+		print_str("Port ");
+		print_dec_nl(i);
+		print_hex_nl(*(port + i), 8);
 
-	print_str("\n");
+		print_str("Write to Port ");
+		print_dec_nl(i);
+		*(port + i) = hex_words[i];
+		print_hex_nl(*(port + i), 8);
+		print_hex_str(*(port + i), 8, "\n\n");
+	}
 
-	print_hex(*(port + 2), 8);
-	print_str("\n");
-	*(port + 2) = 0xdeafface;
-	print_hex(*(port + 2), 8);
-	print_str("\n");
-	print_hex(*(port + 2), 8);
-	print_str("\n");
-
+	for(int i = 0; i < port_num; i++){
+		print_str("Port ");
+		print_dec(i);
+		print_str(": ");
+		print_hex_nl(*(port + i), 8);
+	}
 	print_str("\n");
 }
 
@@ -99,4 +99,21 @@ void fibonacci_test(unsigned int num){
 
 	}
 	print_str("\n\n");
+}
+
+//calls print_hex and adds a \n
+void print_hex_nl(unsigned int val, int digits){
+	print_hex(val, digits);
+	print_str("\n");
+}
+
+//calls print_hex and appens string p to the end
+void print_hex_str(unsigned int val, int digits, const char *p){
+	print_hex(val, digits);
+	print_str(p);
+}
+
+void print_dec_nl(int num){
+	print_dec(num);
+	print_str("\n");
 }

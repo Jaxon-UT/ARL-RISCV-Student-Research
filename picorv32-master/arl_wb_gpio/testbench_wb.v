@@ -143,7 +143,7 @@ module picorv32_wrapper #(
 
 	wb_IO #(
 		.base_address(32'h4000_0000),
-		.extra_IO_addresses(2)
+		.extra_IO_addresses(3)
 		) gpio2 ( // Wishbone interface
 		.wb_clk_i(wb_clk),
 		.wb_rst_i(wb_rst),
@@ -411,7 +411,7 @@ module wb_IO #(
     if(ram_we) begin
       mem_io[mem_elem] <= wb_dat_i;
     end else begin
-      //i <= i + 1;
+      i <= i + 1;
     end
 
     wb_dat_o <= mem_io[mem_elem] + i;
