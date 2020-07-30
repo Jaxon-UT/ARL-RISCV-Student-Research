@@ -472,9 +472,9 @@ object MuraxWithRamInit{
   }
 }
 
-object MuraxWithJaxonRamInit{
+object MuraxWithARLRamInit{
   def main(args: Array[String]) {
-    SpinalVerilog(Murax(MuraxConfig.default.copy(onChipRamSize = 4 kB, onChipRamHexFile = "src/main/ressource/hex/jaxon_demo.hex")))
+    SpinalVerilog(Murax(MuraxConfig.default.copy(onChipRamSize = 4 kB, onChipRamHexFile = "src/main/ressource/hex/arl_demo.hex")))
   }
 }
 
