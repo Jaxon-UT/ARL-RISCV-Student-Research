@@ -1,4 +1,3 @@
-
 RISCV_GNU_TOOLCHAIN_INSTALL_PREFIX = /opt/riscv32
 TOOLCHAIN_PREFIX = $(RISCV_GNU_TOOLCHAIN_INSTALL_PREFIX)i/bin/riscv32-unknown-elf-
 
@@ -32,7 +31,7 @@ zephyr_sync:
 %.bin: %.elf
 	$(TOOLCHAIN_PREFIX)objcopy -O binary $< $@
 %.hex: %.bin
-	python3 makehex.py $< 32768 > $@
+	python3 makehex.py $< 2048 > $@
 
 clean:
 	rm -f *.elf *.bin *.hex

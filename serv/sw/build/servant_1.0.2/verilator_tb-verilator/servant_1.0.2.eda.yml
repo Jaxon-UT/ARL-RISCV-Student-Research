@@ -86,7 +86,7 @@ parameters:
     paramtype: vlogdefine
   firmware:
     datatype: file
-    default: /home/jaxson/Documents/serv/sw/zephyr_examples/zephyr_hello.hex
+    default: /home/jaxson/Documents/serv/sw/blinky.hex
     description: Preload RAM with a hex file at runtime (overrides memfile)
     paramtype: plusarg
   heartbeat:
@@ -95,7 +95,7 @@ parameters:
     paramtype: plusarg
   memsize:
     datatype: int
-    default: 8192
+    default: 32768
     description: Memory size in bytes for RAM (default 8kiB)
     paramtype: vlogparam
   signature:

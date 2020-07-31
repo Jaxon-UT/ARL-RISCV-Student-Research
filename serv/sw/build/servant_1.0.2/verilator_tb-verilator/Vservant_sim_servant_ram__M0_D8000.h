@@ -2,32 +2,35 @@
 // DESCRIPTION: Verilator output: Design internal header
 // See Vservant_sim.h for the primary calling header
 
-#ifndef _Vservant_sim_servant_sim_H_
-#define _Vservant_sim_servant_sim_H_
+#ifndef _Vservant_sim_servant_ram__M0_D8000_H_
+#define _Vservant_sim_servant_ram__M0_D8000_H_
 
 #include "verilated_heavy.h"
 #include "Vservant_sim__Dpi.h"
 
 class Vservant_sim__Syms;
-class Vservant_sim_servant__M0_MB8000_S1;
 class VerilatedVcd;
 
 //----------
 
-VL_MODULE(Vservant_sim_servant_sim) {
+VL_MODULE(Vservant_sim_servant_ram__M0_D8000) {
   public:
-    // CELLS
-    Vservant_sim_servant__M0_MB8000_S1*	dut;
     
     // PORTS
     // Begin mtask footprint  all: 
-    VL_IN8(wb_clk,0,0);
-    VL_IN8(wb_rst,0,0);
-    VL_OUT8(q,0,0);
+    VL_IN8(__PVT__i_wb_clk,0,0);
+    VL_IN8(__PVT__i_wb_sel,3,0);
+    VL_IN8(__PVT__i_wb_we,0,0);
+    VL_IN8(__PVT__i_wb_cyc,0,0);
+    VL_OUT8(__PVT__o_wb_ack,0,0);
+    VL_IN16(__PVT__i_wb_adr,14,2);
+    VL_IN(__PVT__i_wb_dat,31,0);
+    VL_OUT(__PVT__o_wb_rdt,31,0);
     
     // LOCAL SIGNALS
     // Begin mtask footprint  all: 
-    VL_SIGW(__PVT__firmware_file,1023,0,32);
+    VL_SIG8(__PVT__we,3,0);
+    VL_SIG(mem[8192],31,0);
     
     // LOCAL VARIABLES
     
@@ -40,10 +43,10 @@ VL_MODULE(Vservant_sim_servant_sim) {
     
     // CONSTRUCTORS
   private:
-    VL_UNCOPYABLE(Vservant_sim_servant_sim);  ///< Copying not allowed
+    VL_UNCOPYABLE(Vservant_sim_servant_ram__M0_D8000);  ///< Copying not allowed
   public:
-    Vservant_sim_servant_sim(const char* name="TOP");
-    ~Vservant_sim_servant_sim();
+    Vservant_sim_servant_ram__M0_D8000(const char* name="TOP");
+    ~Vservant_sim_servant_ram__M0_D8000();
     void trace(VerilatedVcdC* tfp, int levels, int options=0);
     
     // API METHODS
@@ -53,7 +56,8 @@ VL_MODULE(Vservant_sim_servant_sim) {
   private:
     void _ctor_var_reset();
   public:
-    static void _initial__TOP__servant_sim__1(Vservant_sim__Syms* __restrict vlSymsp);
+    static void _sequent__TOP__servant_sim__dut__ram__1(Vservant_sim__Syms* __restrict vlSymsp);
+    static void _sequent__TOP__servant_sim__dut__ram__2(Vservant_sim__Syms* __restrict vlSymsp);
     static void traceInit(VerilatedVcd* vcdp, void* userthis, uint32_t code);
     static void traceFull(VerilatedVcd* vcdp, void* userthis, uint32_t code);
     static void traceChg(VerilatedVcd* vcdp, void* userthis, uint32_t code);

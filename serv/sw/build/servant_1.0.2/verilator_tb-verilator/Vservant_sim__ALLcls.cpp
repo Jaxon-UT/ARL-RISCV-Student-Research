@@ -2,5 +2,5 @@
 #define VL_INCLUDE_OPT include
 #include "Vservant_sim.cpp"
 #include "Vservant_sim_servant_sim.cpp"
-#include "Vservant_sim_servant__M0_MB2000_S1.cpp"
-#include "Vservant_sim_servant_ram__M0_D2000.cpp"
+#include "Vservant_sim_servant__M0_MB8000_S1.cpp"
+#include "Vservant_sim_servant_ram__M0_D8000.cpp"
