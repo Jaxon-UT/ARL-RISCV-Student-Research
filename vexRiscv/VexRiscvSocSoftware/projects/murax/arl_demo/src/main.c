@@ -37,6 +37,8 @@ void main() {
 
 	UART->STATUS = 2; //Enable RX interrupts
 	print_uart_str("CODE START\n");
+	print_uart_str("Hit enter to see GPIO contents\n");
+	print_uart_str("Enter text to see echo\n");
 
 	input [0] = '=';
 
