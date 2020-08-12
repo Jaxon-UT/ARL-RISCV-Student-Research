@@ -17,8 +17,8 @@ VM_TRACE = 1
 VM_CLASSES_FAST += \
 	Vservant_sim \
 	Vservant_sim_servant_sim \
-	Vservant_sim_servant__M0_MB2000_S1 \
-	Vservant_sim_servant_ram__M0_D2000 \
+	Vservant_sim_servant__M0_MB8000_S1 \
+	Vservant_sim_servant_ram__M0_D8000 \
 
 # Generated module classes, non-fast-path, compile with low/medium optimization
 VM_CLASSES_SLOW += \

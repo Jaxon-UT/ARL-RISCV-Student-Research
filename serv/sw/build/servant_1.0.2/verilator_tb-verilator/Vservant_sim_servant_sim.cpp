@@ -15,7 +15,7 @@
 //--------------------
 
 VL_CTOR_IMP(Vservant_sim_servant_sim) {
-    VL_CELL(dut, Vservant_sim_servant__M0_MB2000_S1);
+    VL_CELL(dut, Vservant_sim_servant__M0_MB8000_S1);
     // Reset internal values
     // Reset structure values
     _ctor_var_reset();
@@ -46,7 +46,7 @@ void Vservant_sim_servant_sim::_initial__TOP__servant_sim__1(Vservant_sim__Syms*
     if (VL_UNLIKELY(VL_VALUEPLUSARGS_INW(1024,VL_CVT_PACK_STR_NW(3,__Vtemp1),
 					 vlSymsp->TOP__servant_sim.__PVT__firmware_file))) {
 	VL_WRITEF("Loading RAM from %0s\n",1024,vlSymsp->TOP__servant_sim.__PVT__firmware_file);
-	VL_READMEM_W(true,32,2048, 0,32, vlSymsp->TOP__servant_sim.__PVT__firmware_file
+	VL_READMEM_W(true,32,8192, 0,32, vlSymsp->TOP__servant_sim.__PVT__firmware_file
 		     , vlSymsp->TOP__servant_sim__dut__ram.mem
 		     ,0,~0);
     }

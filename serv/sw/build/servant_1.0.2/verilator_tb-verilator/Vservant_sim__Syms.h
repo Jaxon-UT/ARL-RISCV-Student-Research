@@ -11,8 +11,8 @@
 // INCLUDE MODULE CLASSES
 #include "Vservant_sim.h"
 #include "Vservant_sim_servant_sim.h"
-#include "Vservant_sim_servant__M0_MB2000_S1.h"
-#include "Vservant_sim_servant_ram__M0_D2000.h"
+#include "Vservant_sim_servant__M0_MB8000_S1.h"
+#include "Vservant_sim_servant_ram__M0_D8000.h"
 
 // DPI TYPES for DPI Export callbacks (Internal use)
 
@@ -28,8 +28,8 @@ class Vservant_sim__Syms : public VerilatedSyms {
     // SUBCELL STATE
     Vservant_sim*                  TOPp;
     Vservant_sim_servant_sim       TOP__servant_sim;
-    Vservant_sim_servant__M0_MB2000_S1 TOP__servant_sim__dut;
-    Vservant_sim_servant_ram__M0_D2000 TOP__servant_sim__dut__ram;
+    Vservant_sim_servant__M0_MB8000_S1 TOP__servant_sim__dut;
+    Vservant_sim_servant_ram__M0_D8000 TOP__servant_sim__dut__ram;
     
     // SCOPE NAMES
     VerilatedScope __Vscope_servant_sim__dut__ram;

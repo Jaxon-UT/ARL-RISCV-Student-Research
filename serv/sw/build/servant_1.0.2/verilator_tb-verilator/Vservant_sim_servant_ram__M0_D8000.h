@@ -2,8 +2,8 @@
 // DESCRIPTION: Verilator output: Design internal header
 // See Vservant_sim.h for the primary calling header
 
-#ifndef _Vservant_sim_servant_ram__M0_D2000_H_
-#define _Vservant_sim_servant_ram__M0_D2000_H_
+#ifndef _Vservant_sim_servant_ram__M0_D8000_H_
+#define _Vservant_sim_servant_ram__M0_D8000_H_
 
 #include "verilated_heavy.h"
 #include "Vservant_sim__Dpi.h"
@@ -13,7 +13,7 @@ class VerilatedVcd;
 
 //----------
 
-VL_MODULE(Vservant_sim_servant_ram__M0_D2000) {
+VL_MODULE(Vservant_sim_servant_ram__M0_D8000) {
   public:
     
     // PORTS
@@ -23,14 +23,14 @@ VL_MODULE(Vservant_sim_servant_ram__M0_D2000) {
     VL_IN8(__PVT__i_wb_we,0,0);
     VL_IN8(__PVT__i_wb_cyc,0,0);
     VL_OUT8(__PVT__o_wb_ack,0,0);
-    VL_IN16(__PVT__i_wb_adr,12,2);
+    VL_IN16(__PVT__i_wb_adr,14,2);
     VL_IN(__PVT__i_wb_dat,31,0);
     VL_OUT(__PVT__o_wb_rdt,31,0);
     
     // LOCAL SIGNALS
     // Begin mtask footprint  all: 
     VL_SIG8(__PVT__we,3,0);
-    VL_SIG(mem[2048],31,0);
+    VL_SIG(mem[8192],31,0);
     
     // LOCAL VARIABLES
     
@@ -43,10 +43,10 @@ VL_MODULE(Vservant_sim_servant_ram__M0_D2000) {
     
     // CONSTRUCTORS
   private:
-    VL_UNCOPYABLE(Vservant_sim_servant_ram__M0_D2000);  ///< Copying not allowed
+    VL_UNCOPYABLE(Vservant_sim_servant_ram__M0_D8000);  ///< Copying not allowed
   public:
-    Vservant_sim_servant_ram__M0_D2000(const char* name="TOP");
-    ~Vservant_sim_servant_ram__M0_D2000();
+    Vservant_sim_servant_ram__M0_D8000(const char* name="TOP");
+    ~Vservant_sim_servant_ram__M0_D8000();
     void trace(VerilatedVcdC* tfp, int levels, int options=0);
     
     // API METHODS

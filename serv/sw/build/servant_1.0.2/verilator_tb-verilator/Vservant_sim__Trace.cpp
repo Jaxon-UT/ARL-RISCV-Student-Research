@@ -305,8 +305,8 @@ void Vservant_sim::traceChgThis__3(Vservant_sim__Syms* __restrict vlSymsp, Veril
 	vcdp->chgBit(c+160,(vlSymsp->TOP__servant_sim__dut.__PVT__cpu__DOT__cpu__DOT__mem_if__DOT__dat_valid));
 	vcdp->chgBit(c+161,(vlSymsp->TOP__servant_sim__dut.cpu__DOT__cpu__DOT____Vcellinp__genblk1__DOT__csr__i_d));
 	vcdp->chgBit(c+162,(vlSymsp->TOP__servant_sim__dut.__PVT__cpu__DOT__cpu__DOT__genblk1__DOT__csr__DOT__timer_irq));
-	vcdp->chgBus(c+163,((0x7ffU & (vlSymsp->TOP__servant_sim__dut.__PVT__wb_mem_adr 
-				       >> 2U))),11);
+	vcdp->chgBus(c+163,((0x1fffU & (vlSymsp->TOP__servant_sim__dut.__PVT__wb_mem_adr 
+					>> 2U))),13);
 	vcdp->chgBus(c+164,(vlSymsp->TOP__servant_sim__dut__ram.__PVT__we),4);
     }
 }
