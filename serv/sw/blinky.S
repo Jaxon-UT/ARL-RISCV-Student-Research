@@ -9,7 +9,7 @@
 #endif
 
 #ifndef DELAY
-#define DELAY 0x2 /* Loop 100000 times before inverting the LED */
+#define DELAY 0x1000 /* Loop 1000 times before inverting the LED */
 #endif
 
 	/*

@@ -9,7 +9,7 @@
 #endif
 
 #ifndef DELAY
-#define DELAY 0x100000 /* Loop 100000 times before inverting the LED */
+#define DELAY 0x1 /* Loop 1 times before inverting the LED */
 #endif
 
 	/*
@@ -29,39 +29,186 @@ _start:
 	/* Set timer value to control blink speed */
 	li t1, DELAY
 
-loop1:
-	/* print "DONE" */
-	lui a0,0x40000000>>12
-	addi a1,zero,'D'
-	addi a2,zero,'O'
-	addi a3,zero,'N'
-	addi a4,zero,'E'
-	addi a5,zero,'\n'
+bl0:
+	li t0, 1
 
-
-	sw a1,0(a0)
-	jal time1
-	sw a2,0(a0)
-	jal time1
-	sw a3,0(a0)
-	jal time1
-	sw a4,0(a0)
-	jal time1
-	sw a5,0(a0)
-	jal time1
-
-	li a0, 0x20000000
-	li a1, 123456789
-	sw a1,0(a0)
-
-	j loop1
+	/* Write to LEDs */
+	sb t0, 0(a0)
 
 	/* Reset timer */
+	and t2, zero, zero
+
+	/* Delay loop */
+time0:
+	addi t2, t2, 1
+	bne t1, t2, time0
+
+
+bl1:
+	li t0, 1
+
+	/* Write to LEDs */
+	sb t0, 0(a0)
+
+	/* Reset timer */
+	and t2, zero, zero
+
+	/* Delay loop */
 time1:
+	addi t2, t2, 1
+	bne t1, t2, time1
+
+
+bl2:
+	li t0, 1
+
+	/* Write to LEDs */
+	sb t0, 0(a0)
+
+	/* Reset timer */
 	and t2, zero, zero
 
 	/* Delay loop */
 time2:
 	addi t2, t2, 1
 	bne t1, t2, time2
-	ret
+
+
+bl3:
+	li t0, 0
+
+	/* Write to LEDs */
+	sb t0, 0(a0)
+
+	/* Reset timer */
+	and t2, zero, zero
+
+	/* Delay loop */
+time3:
+	addi t2, t2, 1
+	bne t1, t2, time3
+
+
+//start char A===============
+bl4:
+	li t0, 1
+
+	/* Write to LEDs */
+	sb t0, 0(a0)
+
+	/* Reset timer */
+	and t2, zero, zero
+
+	/* Delay loop */
+time4:
+	addi t2, t2, 1
+	bne t1, t2, time4
+
+
+bl5:
+	li t0, 0
+
+	/* Write to LEDs */
+	sb t0, 0(a0)
+
+	/* Reset timer */
+	and t2, zero, zero
+
+	/* Delay loop */
+time5:
+	addi t2, t2, 1
+	bne t1, t2, time5
+
+
+bl6:
+	li t0, 0
+
+	/* Write to LEDs */
+	sb t0, 0(a0)
+
+	/* Reset timer */
+	and t2, zero, zero
+
+	/* Delay loop */
+time6:
+	addi t2, t2, 1
+	bne t1, t2, time6
+
+
+bl7:
+	li t0, 0
+
+	/* Write to LEDs */
+	sb t0, 0(a0)
+
+	/* Reset timer */
+	and t2, zero, zero
+
+	/* Delay loop */
+time7:
+	addi t2, t2, 1
+	bne t1, t2, time7
+
+
+bl8:
+	li t0, 0
+
+	/* Write to LEDs */
+	sb t0, 0(a0)
+
+	/* Reset timer */
+	and t2, zero, zero
+
+	/* Delay loop */
+time8:
+	addi t2, t2, 1
+	bne t1, t2, time8
+
+bl9:
+	li t0, 0
+
+	/* Write to LEDs */
+	sb t0, 0(a0)
+
+	/* Reset timer */
+	and t2, zero, zero
+
+	/* Delay loop */
+time9:
+	addi t2, t2, 1
+	bne t1, t2, time9
+
+
+blA:
+	li t0, 1
+
+	/* Write to LEDs */
+	sb t0, 0(a0)
+
+	/* Reset timer */
+	and t2, zero, zero
+
+	/* Delay loop */
+timeA:
+	addi t2, t2, 1
+	bne t1, t2, timeA
+
+blB:
+	li t0, 0
+
+	/* Write to LEDs */
+	sb t0, 0(a0)
+
+	/* Reset timer */
+	and t2, zero, zero
+
+	/* Delay loop */
+timeB:
+	addi t2, t2, 1
+	bne t1, t2, timeB
+
+
+	li t0, 1
+
+	/* Write to LEDs */
+	sb t0, 0(a0)

@@ -5,10 +5,10 @@ TOOLCHAIN_PREFIX = $(RISCV_GNU_TOOLCHAIN_INSTALL_PREFIX)i/bin/riscv32-unknown-el
 	fusesoc run --target=verilator_tb servant --uart_baudrate=57600 --firmware=$< --memsize=32768
 
 %_vcd: %.hex
-	fusesoc run --target=verilator_tb servant --vcd --uart_baudrate=57600 --firmware=$<
+	fusesoc run --target=verilator_tb servant --vcd --uart_baudrate=57600 --firmware=$< --memsize=32768
 
 zephyr_hello:
-	fusesoc run --target=verilator_tb servant --uart_baudrate=57600 --firmware=zephyr_examples/zephyr_hello.hex
+	fusesoc run --target=verilator_tb servant --vcd --uart_baudrate=57600 --firmware=zephyr_examples/zephyr_hello.hex
 
 zephyr_hello_vcd:
 	fusesoc run --target=verilator_tb servant --vcd --uart_baudrate=57600 --firmware=zephyr_examples/zephyr_hello.hex
@@ -24,7 +24,7 @@ zephyr_sync:
 
 
 %.S: %.c link.ld
-	$(TOOLCHAIN_PREFIX)gcc -S -nostartfiles -march=rv32i -mabi=ilp32 -Tlink.ld -o  $@ $<
+	$(TOOLCHAIN_PREFIX)gcc -S -O0 -nostartfiles -march=rv32i -mabi=ilp32 -Tlink.ld -o  $@ $<
 
 %.elf: %.S link.ld
 	$(TOOLCHAIN_PREFIX)gcc -nostartfiles -march=rv32i -mabi=ilp32 -Tlink.ld -o $@ $<

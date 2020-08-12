@@ -1,0 +1,29 @@
+/opt/riscv32i/bin/riscv32-unknown-elf-gcc -S -nostartfiles -march=rv32i -mabi=ilp32 -Tlink.ld -o  main.S main.c
+/opt/riscv32i/bin/riscv32-unknown-elf-gcc -nostartfiles -march=rv32i -mabi=ilp32 -Tlink.ld -o main.elf main.S
+/opt/riscv32i/bin/riscv32-unknown-elf-objcopy -O binary main.elf main.bin
+python3 makehex.py main.bin 2048 > main.hex
+fusesoc run --target=verilator_tb servant --uart_baudrate=57600 --firmware=main.hex --memsize=32768
+make[1]: Entering directory '/home/jaxson/Documents/serv/sw/build/servant_1.0.2/verilator_tb-verilator'
+verilator -f servant_1.0.2.vc --trace
+make  -f Vservant_sim.mk
+make[2]: Entering directory '/home/jaxson/Documents/serv/sw/build/servant_1.0.2/verilator_tb-verilator'
+g++  -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVL_PRINTF=printf -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -faligned-new -Wno-bool-operation -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-shadow     -I../src/serv_1.0.2/rtl   -c -o servant_tb.o ../src/servant_1.0.2/bench/servant_tb.cpp
+g++  -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVL_PRINTF=printf -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -faligned-new -Wno-bool-operation -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-shadow     -I../src/serv_1.0.2/rtl   -c -o verilated.o /usr/share/verilator/include/verilated.cpp
+g++  -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVL_PRINTF=printf -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -faligned-new -Wno-bool-operation -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-shadow     -I../src/serv_1.0.2/rtl   -c -o verilated_dpi.o /usr/share/verilator/include/verilated_dpi.cpp
+g++  -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVL_PRINTF=printf -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -faligned-new -Wno-bool-operation -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-shadow     -I../src/serv_1.0.2/rtl   -c -o verilated_vcd_c.o /usr/share/verilator/include/verilated_vcd_c.cpp
+/usr/bin/perl /usr/share/verilator/bin/verilator_includer -DVL_INCLUDE_OPT=include Vservant_sim.cpp Vservant_sim_servant_sim.cpp Vservant_sim_servant__M0_MB8000_S1.cpp Vservant_sim_servant_ram__M0_D8000.cpp > Vservant_sim__ALLcls.cpp
+/usr/bin/perl /usr/share/verilator/bin/verilator_includer -DVL_INCLUDE_OPT=include Vservant_sim__Dpi.cpp Vservant_sim__Trace.cpp Vservant_sim__Syms.cpp Vservant_sim__Trace__Slow.cpp > Vservant_sim__ALLsup.cpp
+g++  -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVL_PRINTF=printf -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -faligned-new -Wno-bool-operation -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-shadow     -I../src/serv_1.0.2/rtl   -c -o Vservant_sim__ALLsup.o Vservant_sim__ALLsup.cpp
+g++  -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVL_PRINTF=printf -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -faligned-new -Wno-bool-operation -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-shadow     -I../src/serv_1.0.2/rtl   -c -o Vservant_sim__ALLcls.o Vservant_sim__ALLcls.cpp
+      Archiving Vservant_sim__ALL.a ...
+ar r Vservant_sim__ALL.a Vservant_sim__ALLcls.o Vservant_sim__ALLsup.o
+ranlib Vservant_sim__ALL.a
+g++    servant_tb.o verilated.o verilated_dpi.o verilated_vcd_c.o Vservant_sim__ALL.a    -o Vservant_sim -lm -lstdc++ 
+make[2]: Leaving directory '/home/jaxson/Documents/serv/sw/build/servant_1.0.2/verilator_tb-verilator'
+make[1]: Leaving directory '/home/jaxson/Documents/serv/sw/build/servant_1.0.2/verilator_tb-verilator'
+Loading RAM from /home/jaxson/Documents/serv/sw/main.hex
+àü
+Caught ctrl-c
+
+
+

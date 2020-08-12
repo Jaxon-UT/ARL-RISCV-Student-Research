@@ -86,7 +86,7 @@ parameters:
     paramtype: vlogdefine
   firmware:
     datatype: file
-    default: /home/jaxson/Documents/serv/sw/blinky.hex
+    default: /home/jaxson/Documents/serv/sw/zephyr_examples/zephyr_phil.hex
     description: Preload RAM with a hex file at runtime (overrides memfile)
     paramtype: plusarg
   heartbeat:
