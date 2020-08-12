@@ -26,4 +26,4 @@
 --top-module servant_sim
 --exe
 ../src/servant_1.0.2/bench/servant_tb.cpp
--Gmemsize=32768
+-Gmemsize=8192

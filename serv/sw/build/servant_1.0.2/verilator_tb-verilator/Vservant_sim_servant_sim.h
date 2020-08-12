@@ -9,7 +9,7 @@
 #include "Vservant_sim__Dpi.h"
 
 class Vservant_sim__Syms;
-class Vservant_sim_servant__M0_MB8000_S1;
+class Vservant_sim_servant__M0_MB2000_S1;
 class VerilatedVcd;
 
 //----------
@@ -17,7 +17,7 @@ class VerilatedVcd;
 VL_MODULE(Vservant_sim_servant_sim) {
   public:
     // CELLS
-    Vservant_sim_servant__M0_MB8000_S1*	dut;
+    Vservant_sim_servant__M0_MB2000_S1*	dut;
     
     // PORTS
     // Begin mtask footprint  all: 

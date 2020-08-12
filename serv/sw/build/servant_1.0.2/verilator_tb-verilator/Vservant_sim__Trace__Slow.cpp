@@ -715,7 +715,7 @@ void Vservant_sim::traceInitThis__1(Vservant_sim__Syms* __restrict vlSymsp, Veri
 	vcdp->declBus(c+309,"servant_sim dut ram aw",-1,31,0);
 	vcdp->declBus(c+292,"servant_sim dut ram memfile",-1,0,0);
 	vcdp->declBit(c+289,"servant_sim dut ram i_wb_clk",-1);
-	vcdp->declBus(c+163,"servant_sim dut ram i_wb_adr",-1,14,2);
+	vcdp->declBus(c+163,"servant_sim dut ram i_wb_adr",-1,12,2);
 	vcdp->declBus(c+170,"servant_sim dut ram i_wb_dat",-1,31,0);
 	vcdp->declBus(c+68,"servant_sim dut ram i_wb_sel",-1,3,0);
 	vcdp->declBit(c+73,"servant_sim dut ram i_wb_we",-1);
@@ -724,7 +724,7 @@ void Vservant_sim::traceInitThis__1(Vservant_sim__Syms* __restrict vlSymsp, Veri
 	vcdp->declBit(c+174,"servant_sim dut ram o_wb_ack",-1);
 	vcdp->declBus(c+164,"servant_sim dut ram we",-1,3,0);
 	// Tracing: servant_sim dut ram mem // Ignored: Wide memory > --trace-max-array ents at ../src/servant_1.0.2/servant/servant_ram.v:18
-	vcdp->declBus(c+163,"servant_sim dut ram addr",-1,12,0);
+	vcdp->declBus(c+163,"servant_sim dut ram addr",-1,10,0);
     }
 }
 
@@ -984,8 +984,8 @@ void Vservant_sim::traceFullThis__1(Vservant_sim__Syms* __restrict vlSymsp, Veri
 	vcdp->fullBit(c+160,(vlSymsp->TOP__servant_sim__dut.__PVT__cpu__DOT__cpu__DOT__mem_if__DOT__dat_valid));
 	vcdp->fullBit(c+161,(vlSymsp->TOP__servant_sim__dut.cpu__DOT__cpu__DOT____Vcellinp__genblk1__DOT__csr__i_d));
 	vcdp->fullBit(c+162,(vlSymsp->TOP__servant_sim__dut.__PVT__cpu__DOT__cpu__DOT__genblk1__DOT__csr__DOT__timer_irq));
-	vcdp->fullBus(c+163,((0x1fffU & (vlSymsp->TOP__servant_sim__dut.__PVT__wb_mem_adr 
-					 >> 2U))),13);
+	vcdp->fullBus(c+163,((0x7ffU & (vlSymsp->TOP__servant_sim__dut.__PVT__wb_mem_adr 
+					>> 2U))),11);
 	vcdp->fullBus(c+164,(vlSymsp->TOP__servant_sim__dut__ram.__PVT__we),4);
 	vcdp->fullBit(c+165,(vlSymsp->TOP__servant_sim__dut.__PVT__q));
 	vcdp->fullBit(c+166,(vlSymsp->TOP__servant_sim__dut.__PVT__timer_irq));
@@ -1213,7 +1213,7 @@ void Vservant_sim::traceFullThis__1(Vservant_sim__Syms* __restrict vlSymsp, Veri
 	vcdp->fullBit(c+291,(vlTOPp->q));
 	vcdp->fullBit(c+292,(0U));
 	vcdp->fullBus(c+293,(1U),32);
-	vcdp->fullBus(c+294,(0x8000U),32);
+	vcdp->fullBus(c+294,(0x2000U),32);
 	vcdp->fullBus(c+295,(0U),32);
 	vcdp->fullBus(c+296,(2U),32);
 	vcdp->fullBus(c+297,(0xaU),32);
@@ -1228,6 +1228,6 @@ void Vservant_sim::traceFullThis__1(Vservant_sim__Syms* __restrict vlSymsp, Veri
 	vcdp->fullBus(c+306,(0x20U),32);
 	vcdp->fullBus(c+307,(0U),32);
 	vcdp->fullBus(c+308,(0x1fU),32);
-	vcdp->fullBus(c+309,(0xfU),32);
+	vcdp->fullBus(c+309,(0xdU),32);
     }
 }

@@ -4,8 +4,8 @@
 #include "Vservant_sim__Syms.h"
 #include "Vservant_sim.h"
 #include "Vservant_sim_servant_sim.h"
-#include "Vservant_sim_servant__M0_MB8000_S1.h"
-#include "Vservant_sim_servant_ram__M0_D8000.h"
+#include "Vservant_sim_servant__M0_MB2000_S1.h"
+#include "Vservant_sim_servant_ram__M0_D2000.h"
 
 // FUNCTIONS
 Vservant_sim__Syms::Vservant_sim__Syms(Vservant_sim* topp, const char* namep)
@@ -33,6 +33,6 @@ Vservant_sim__Syms::Vservant_sim__Syms(Vservant_sim* topp, const char* namep)
     __Vscope_servant_sim__dut__ram.configure(this,name(),"servant_sim.dut.ram");
     // Setup export functions
     for (int __Vfinal=0; __Vfinal<2; __Vfinal++) {
-	__Vscope_servant_sim__dut__ram.varInsert(__Vfinal,"mem", &(TOP__servant_sim__dut__ram.mem), VLVT_UINT32,VLVD_NODIR|VLVF_PUB_RW,2 ,31,0 ,8191,0);
+	__Vscope_servant_sim__dut__ram.varInsert(__Vfinal,"mem", &(TOP__servant_sim__dut__ram.mem), VLVT_UINT32,VLVD_NODIR|VLVF_PUB_RW,2 ,31,0 ,2047,0);
     }
 }
