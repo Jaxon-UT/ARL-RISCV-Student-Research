@@ -1,3 +1,4 @@
 [submodule "serv/zephyr"]
   path = serv/zephyr
-  url = https://github.com/olofk/zephyr/tree/serv1.14.1
+  url = https://github.com/olofk/zephyr
+  branch = serv1.14.1
